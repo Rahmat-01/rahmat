@@ -527,7 +527,411 @@
 //   }
 // }
 
+// import 'package:flutter/material.dart';
+
+// void main() {
+//   runApp(const MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Desain App',
+//       debugShowCheckedModeBanner: false,
+//       home: const Profil(),
+//     );
+//   }
+// }
+
+// // Splash Screen
+// class Profil extends StatelessWidget {
+//   const Profil({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: const Color(0xFF2E294E),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             const CircleAvatar(
+//               radius: 60,
+//               backgroundImage: AssetImage('assets/images/Rahmat.jpg'),
+//             ),
+//             const SizedBox(height: 20),
+//             const Text(
+//               'Rahmat Hidayah',
+//               textAlign: TextAlign.center,
+//               style: TextStyle(
+//                 fontFamily: 'Poppins',
+//                 fontSize: 22,
+//                 fontWeight: FontWeight.bold,
+//                 color: Colors.white,
+//               ),
+//             ),
+//             const SizedBox(height: 8),
+//             const Text(
+//               '236250074',
+//               style: TextStyle(
+//                 fontSize: 16,
+//                 color: Colors.white70,
+//               ),
+//             ),
+//             const SizedBox(height: 40),
+//             IconButton(
+//               icon: const Icon(Icons.arrow_forward, color: Colors.white),
+//               iconSize: 40,
+//               onPressed: () {
+//                 Navigator.push(context,
+//                     MaterialPageRoute(builder: (_) => const LoginPage()));
+//               },
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// // Login Page
+// class LoginPage extends StatefulWidget {
+//   const LoginPage({super.key});
+
+//   @override
+//   State<LoginPage> createState() => _LoginPageState();
+// }
+
+// class _LoginPageState extends State<LoginPage> {
+//   final _usernameController = TextEditingController();
+//   final _passwordController = TextEditingController();
+//   bool _rememberMe = false;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: const Color(0xFF2E294E),
+//       body: Center(
+//         child: SingleChildScrollView(
+//           padding: const EdgeInsets.all(24.0),
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               const Icon(Icons.person, size: 80, color: Colors.cyan),
+//               const SizedBox(height: 10),
+//               const Text(
+//                 'Login',
+//                 textAlign: TextAlign.center,
+//                 style: TextStyle(
+//                   fontSize: 28,
+//                   fontWeight: FontWeight.bold,
+//                   color: Color(0xFF9AE19D),
+//                 ),
+//               ),
+//               const SizedBox(height: 30),
+//               buildInputField(Icons.person, 'Username', _usernameController),
+//               const SizedBox(height: 12),
+//               buildInputField(Icons.lock, 'Password', _passwordController,
+//                   isPassword: true),
+//               const SizedBox(height: 8),
+//               Row(
+//                 mainAxisAlignment: MainAxisAlignment.center,
+//                 children: [
+//                   Checkbox(
+//                     value: _rememberMe,
+//                     onChanged: (value) {
+//                       setState(() {
+//                         _rememberMe = value!;
+//                       });
+//                     },
+//                   ),
+//                   const Text(
+//                     "Remember me",
+//                     style: TextStyle(color: Colors.white),
+//                   ),
+//                 ],
+//               ),
+//               const SizedBox(height: 20),
+//               ElevatedButton(
+//                 onPressed: () {
+//                   Navigator.push(context,
+//                       MaterialPageRoute(builder: (_) => const SignUpPage()));
+//                 },
+//                 style: ElevatedButton.styleFrom(
+//                   backgroundColor: Colors.grey[300],
+//                   foregroundColor: Colors.black,
+//                   shape: RoundedRectangleBorder(
+//                       borderRadius: BorderRadius.circular(30)),
+//                   padding:
+//                       const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+//                 ),
+//                 child: const Text(
+//                   'Login',
+//                   style: TextStyle(fontWeight: FontWeight.bold),
+//                 ),
+//               )
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+
+//   Widget buildInputField(IconData icon, String hint,
+//       TextEditingController controller,
+//       {bool isPassword = false}) {
+//     return Center(
+//       child: Container(
+//         width: 250,
+//         height: 44,
+//         margin: const EdgeInsets.symmetric(vertical: 4),
+//         padding: const EdgeInsets.symmetric(horizontal: 12),
+//         decoration: BoxDecoration(
+//           color: Colors.grey[300],
+//           borderRadius: BorderRadius.circular(20),
+//         ),
+//         child: Row(
+//           children: [
+//             Icon(icon, size: 20),
+//             const SizedBox(width: 8),
+//             Expanded(
+//               child: TextField(
+//                 controller: controller,
+//                 obscureText: isPassword,
+//                 textAlign: TextAlign.center,
+//                 style: const TextStyle(fontSize: 14),
+//                 decoration: InputDecoration(
+//                   isDense: true,
+//                   contentPadding: EdgeInsets.zero,
+//                   hintText: hint,
+//                   border: InputBorder.none,
+//                 ),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// // SignUp Page
+// class SignUpPage extends StatelessWidget {
+//   const SignUpPage({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final _usernameController = TextEditingController();
+//     final _emailController = TextEditingController();
+//     final _passwordController = TextEditingController();
+//     final _confirmController = TextEditingController();
+
+//     return Scaffold(
+//       backgroundColor: const Color(0xFF2E294E),
+//       body: Center(
+//         child: SingleChildScrollView(
+//           padding: const EdgeInsets.all(24.0),
+//           child: Column(
+//             children: [
+//               const Icon(Icons.person, size: 80, color: Colors.cyan),
+//               const SizedBox(height: 10),
+//               const Text(
+//                 'Signup',
+//                 style: TextStyle(
+//                   fontSize: 28,
+//                   fontWeight: FontWeight.bold,
+//                   color: Color(0xFF9AE19D),
+//                 ),
+//               ),
+//               const SizedBox(height: 30),
+//               buildInputField(Icons.person, 'Username', _usernameController),
+//               const SizedBox(height: 12),
+//               buildInputField(Icons.email, 'Email', _emailController),
+//               const SizedBox(height: 12),
+//               buildInputField(Icons.lock, 'Password', _passwordController,
+//                   isPassword: true),
+//               const SizedBox(height: 12),
+//               buildInputField(Icons.lock, 'Confirm Password', _confirmController,
+//                   isPassword: true),
+//               const SizedBox(height: 20),
+//               ElevatedButton(
+//                 onPressed: () {
+//                   Navigator.pushReplacement(context,
+//                       MaterialPageRoute(builder: (_) => const HomePage()));
+//                 },
+//                 style: ElevatedButton.styleFrom(
+//                   backgroundColor: Colors.grey[300],
+//                   foregroundColor: Colors.black,
+//                   shape: RoundedRectangleBorder(
+//                       borderRadius: BorderRadius.circular(30)),
+//                   padding:
+//                       const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+//                 ),
+//                 child: const Text(
+//                   'Create Account',
+//                   style: TextStyle(fontWeight: FontWeight.bold),
+//                 ),
+//               )
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+
+//   Widget buildInputField(IconData icon, String hint,
+//       TextEditingController controller,
+//       {bool isPassword = false}) {
+//     return Center(
+//       child: Container(
+//         width: 250,
+//         height: 44,
+//         margin: const EdgeInsets.symmetric(vertical: 4),
+//         padding: const EdgeInsets.symmetric(horizontal: 12),
+//         decoration: BoxDecoration(
+//           color: Colors.grey[300],
+//           borderRadius: BorderRadius.circular(20),
+//         ),
+//         child: Row(
+//           children: [
+//             Icon(icon, size: 20),
+//             const SizedBox(width: 8),
+//             Expanded(
+//               child: TextField(
+//                 controller: controller,
+//                 obscureText: isPassword,
+//                 textAlign: TextAlign.center,
+//                 style: const TextStyle(fontSize: 14),
+//                 decoration: InputDecoration(
+//                   isDense: true,
+//                   contentPadding: EdgeInsets.zero,
+//                   hintText: hint,
+//                   border: InputBorder.none,
+//                 ),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// // Home Page
+// class HomePage extends StatelessWidget {
+//   const HomePage({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: const Color(0xFFE3F4F4),
+//       body: SafeArea(
+//         child: Column(
+//           children: [
+//             Container(
+//               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+//               alignment: Alignment.centerLeft,
+//               child: const Text(
+//                 'Selamat Datang',
+//                 style: TextStyle(
+//                   fontSize: 20,
+//                   fontWeight: FontWeight.bold,
+//                 ),
+//               ),
+//             ),
+//             Image.asset('assets/images/desain.jpeg'),
+//             Padding(
+//               padding: const EdgeInsets.all(16.0),
+//               child: Row(
+//                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                 children: [
+//                   buildMenuButton('Desain'),
+//                   buildMenuButton('Draft'),
+//                 ],
+//               ),
+//             ),
+//             const Padding(
+//               padding: EdgeInsets.symmetric(vertical: 8),
+//               child: Text(
+//                 'Riwayat Desain',
+//                 style: TextStyle(
+//                   fontWeight: FontWeight.bold,
+//                   fontSize: 18,
+//                 ),
+//               ),
+//             ),
+//             Expanded(
+//               child: Padding(
+//                 padding: const EdgeInsets.symmetric(horizontal: 16),
+//                 child: GridView.count(
+//                   crossAxisCount: 3, // 3 kolom
+//                   crossAxisSpacing: 10,
+//                   mainAxisSpacing: 10,
+//                   children: [
+//                     buildGridItem('assets/images/desain1.jpg', 'Desain 1'),
+//                     buildGridItem('assets/images/desain2.png', 'Desain 2'),
+//                     buildGridItem('assets/images/desain3.png', 'Desain 3'),
+//                     // Tambahkan lebih banyak gambar jika diperlukan
+//                   ],
+//                 ),
+//               ),
+//             ),
+//             BottomNavigationBar(
+//               items: const [
+//                 BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+//                 BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+//                 BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Setting'),
+//               ],
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+
+//   Widget buildMenuButton(String title) {
+//     return ElevatedButton(
+//       onPressed: () {},
+//       style: ElevatedButton.styleFrom(
+//         backgroundColor: Colors.blue[300],
+//         foregroundColor: Colors.white,
+//         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+//         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+//       ),
+//       child: Text(title),
+//     );
+//   }
+
+//   Widget buildGridItem(String imagePath, String title) {
+//     return Column(
+//       children: [
+//         ClipRRect(
+//           borderRadius: BorderRadius.circular(8),
+//           child: Image.asset(
+//             imagePath,
+//             width: 80,
+//             height: 80,
+//             fit: BoxFit.cover,
+//           ),
+//         ),
+//         const SizedBox(height: 4),
+//         Text(
+//           title,
+//           style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+//           textAlign: TextAlign.center,
+//         ),
+//       ],
+//     );
+//   }
+// }
+
+
 import 'package:flutter/material.dart';
+import 'package:project1/Profilpage.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -541,389 +945,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Desain App',
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
-    );
-  }
-}
-
-// Splash Screen
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFF2E294E),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const CircleAvatar(
-              radius: 60,
-              backgroundImage: AssetImage('assets/images/Rahmat.jpg'),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Rahmat Hidayah',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              '236250074',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white70,
-              ),
-            ),
-            const SizedBox(height: 40),
-            IconButton(
-              icon: const Icon(Icons.arrow_forward, color: Colors.white),
-              iconSize: 40,
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => const LoginPage()));
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-// Login Page
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
-
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
-  bool _rememberMe = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFF2E294E),
-      body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.person, size: 80, color: Colors.cyan),
-              const SizedBox(height: 10),
-              const Text(
-                'Login',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF9AE19D),
-                ),
-              ),
-              const SizedBox(height: 30),
-              buildInputField(Icons.person, 'Username', _usernameController),
-              const SizedBox(height: 12),
-              buildInputField(Icons.lock, 'Password', _passwordController,
-                  isPassword: true),
-              const SizedBox(height: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Checkbox(
-                    value: _rememberMe,
-                    onChanged: (value) {
-                      setState(() {
-                        _rememberMe = value!;
-                      });
-                    },
-                  ),
-                  const Text(
-                    "Remember me",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => const SignUpPage()));
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.grey[300],
-                  foregroundColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
-                ),
-                child: const Text(
-                  'Login',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget buildInputField(IconData icon, String hint,
-      TextEditingController controller,
-      {bool isPassword = false}) {
-    return Center(
-      child: Container(
-        width: 250,
-        height: 44,
-        margin: const EdgeInsets.symmetric(vertical: 4),
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        decoration: BoxDecoration(
-          color: Colors.grey[300],
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Row(
-          children: [
-            Icon(icon, size: 20),
-            const SizedBox(width: 8),
-            Expanded(
-              child: TextField(
-                controller: controller,
-                obscureText: isPassword,
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 14),
-                decoration: InputDecoration(
-                  isDense: true,
-                  contentPadding: EdgeInsets.zero,
-                  hintText: hint,
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-// SignUp Page
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final _usernameController = TextEditingController();
-    final _emailController = TextEditingController();
-    final _passwordController = TextEditingController();
-    final _confirmController = TextEditingController();
-
-    return Scaffold(
-      backgroundColor: const Color(0xFF2E294E),
-      body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            children: [
-              const Icon(Icons.person, size: 80, color: Colors.cyan),
-              const SizedBox(height: 10),
-              const Text(
-                'Signup',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF9AE19D),
-                ),
-              ),
-              const SizedBox(height: 30),
-              buildInputField(Icons.person, 'Username', _usernameController),
-              const SizedBox(height: 12),
-              buildInputField(Icons.email, 'Email', _emailController),
-              const SizedBox(height: 12),
-              buildInputField(Icons.lock, 'Password', _passwordController,
-                  isPassword: true),
-              const SizedBox(height: 12),
-              buildInputField(Icons.lock, 'Confirm Password', _confirmController,
-                  isPassword: true),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (_) => const HomePage()));
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.grey[300],
-                  foregroundColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
-                ),
-                child: const Text(
-                  'Create Account',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget buildInputField(IconData icon, String hint,
-      TextEditingController controller,
-      {bool isPassword = false}) {
-    return Center(
-      child: Container(
-        width: 250,
-        height: 44,
-        margin: const EdgeInsets.symmetric(vertical: 4),
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        decoration: BoxDecoration(
-          color: Colors.grey[300],
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Row(
-          children: [
-            Icon(icon, size: 20),
-            const SizedBox(width: 8),
-            Expanded(
-              child: TextField(
-                controller: controller,
-                obscureText: isPassword,
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 14),
-                decoration: InputDecoration(
-                  isDense: true,
-                  contentPadding: EdgeInsets.zero,
-                  hintText: hint,
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-// Home Page
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFE3F4F4),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-              alignment: Alignment.centerLeft,
-              child: const Text(
-                'Selamat Datang',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Image.asset('assets/images/desain.jpeg'),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  buildMenuButton('Desain'),
-                  buildMenuButton('Draft'),
-                ],
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 8),
-              child: Text(
-                'Riwayat Desain',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: GridView.count(
-                  crossAxisCount: 3, // 3 kolom
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  children: [
-                    buildGridItem('assets/images/desain1.jpg', 'Desain 1'),
-                    buildGridItem('assets/images/desain2.png', 'Desain 2'),
-                    buildGridItem('assets/images/desain3.png', 'Desain 3'),
-                    // Tambahkan lebih banyak gambar jika diperlukan
-                  ],
-                ),
-              ),
-            ),
-            BottomNavigationBar(
-              items: const [
-                BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-                BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-                BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Setting'),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget buildMenuButton(String title) {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blue[300],
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-      ),
-      child: Text(title),
-    );
-  }
-
-  Widget buildGridItem(String imagePath, String title) {
-    return Column(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Image.asset(
-            imagePath,
-            width: 80,
-            height: 80,
-            fit: BoxFit.cover,
-          ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          title,
-          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
-          textAlign: TextAlign.center,
-        ),
-      ],
+      home: const Profilpage(),
     );
   }
 }
