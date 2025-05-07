@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project1/signuppage.dart';
+import 'package:project1/Signuppage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
