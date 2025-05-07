@@ -52,13 +52,13 @@ class HomePage extends StatelessWidget {
                 child: Center(
                   child: SizedBox(
                     width: 280,
-                    height: 300, // ✅ Atur tinggi agar tidak overflow
+                    height: 300, 
                     child: GridView.count(
                       crossAxisCount: 3,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
                       shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(), // ✅ Biar tidak scroll dobel
+                      physics: const NeverScrollableScrollPhysics(), 
                       children: [
                         buildGridItem('assets/images/desain1.jpg', 'Desain 1'),
                         buildGridItem('assets/images/desain2.png', 'Desain 2'),
